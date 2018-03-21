@@ -1,28 +1,48 @@
 <!doctype html>
 <html>
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Native Video</title>
-  <link href="css/main.css" rel="stylesheet" type="text/css" media="screen">
+<head>
+<meta charset="UTF-8">
+<title>GoT Video App</title>
+<link href="css/meyerReset.css" rel="stylesheet" type="text/css" media="screen">
+<link href="css/GOT_master.css" rel="stylesheet" type="text/css" media="screen">
 </head>
+
 <body>
+    <main>
 
-  <section class="wrapper">
-    <video muted poster="images/vid1_large.png">
-      <!-- add sources inside -->
-      <source src="video/mini_1.mp4" type="video/mp4"> <!--First one should always be mp4-->
-      <source src="video/mini_1.webm" type="video/webm"> <!--Second should be webm-->
-      <source src="video/mini_1.ogg" type="video/ogg"> <!--Last should be ogg-->
-      Your browser doesn't support this video. Use one that doesn't suck!
-    </video>
-    <button>play</button>
-    <button>pause</button>
-    <button>rewind</button>
+    <section id="imageContainer">
+    	<div id="houseImages"> <!-- add in all of the images to make a scrolling "banner" -->
+    		<img src="images/stark.jpg" alt="stark"/>
+    		<img src="images/baratheon.jpg" alt="baratheon"/>
+    		<img src="images/lannister.jpg" alt="lannister"/>
+    		<img src="images/tully.jpg" alt="tully"/>
+    		<img src="images/greyjoy.jpg" alt="greyjoy"/>
+    		<img src="images/arryn.jpg" alt="arryn"/>
+        </div>
+    </section>
 
-  </section>
+    <nav id="bottomNav">
+    	<ul id="navList">
+        	<!-- custom data attribute, allowing to pass custom data https://developer.mozilla.org/en/docs/Web/API/HTMLElement/dataset -->
+            <li><div class="sigilContainer stark" data-offset="0"></div></li>
+            <li><div class="sigilContainer baratheon" data-offset="1"></div></li>
+            <li><div class="sigilContainer lannister" data-offset="2"></div></li>
+            <li><div class="sigilContainer tully" data-offset="3"></div></li>
+            <li><div class="sigilContainer greyjoy" data-offset="4"></div></li>
+            <li><div class="sigilContainer arryn" data-offset="5"></div></li>
+        </ul>
+    </nav>
 
-<script src="js/main.js"></script>
+    <h1>clever tagline goes here</h1><!-- replace this with the house name -->
+
+    <p class="house-info"></p><!-- replace this with house details (github gist for details) -->
+</main>
+
+<section class="lightbox">
+    <span class="close-lightbox">x</span>
+    <!-- add video here with sources for fallback / standards -->
+
+</section>
+<script src="js/GOT_master.js"></script>
 </body>
 </html>
