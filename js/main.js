@@ -12,6 +12,7 @@
         playPause = document.querySelector('.controls'),
         ffWd = document.querySelector('.forward'),
         rWnd = document.querySelector('.rewind');
+        imageBanner = document.querySelector('#houseImages')
 
 
   // functions and methods at the top
@@ -28,6 +29,15 @@
 
     vidPlayer.load();
     vidPlayer.play();
+
+    animateBanners(this.dataset.offset);
+  }
+
+  function animateBanners(offset) {
+    //console.log(600 * offset); // this should give us the value we need to move the banner appropriately
+
+    // animate the banners across the screen
+    imageBanner.style.right = (offset * 600) + "px";
   }
 
   function closeLBox() {
