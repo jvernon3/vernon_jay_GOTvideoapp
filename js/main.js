@@ -7,7 +7,11 @@
   const sigils = document.querySelectorAll('.sigilContainer'),
         lightbox = document.querySelector('.lightbox'),
         closeLightbox = document.querySelector('.close-lightbox'),
-        vidPlayer = document.querySelector('video');
+        vidPlayer = document.querySelector('video'),
+        vidHouse = document.querySelector('houseName'),
+        playPause = document.querySelector('.controls'),
+        ffWd = document.querySelector('.forward'),
+        rWnd = document.querySelector('.rewind');
 
 
   // functions and methods at the top
@@ -19,6 +23,10 @@
     // 2. grab the right video based on the class name -> the split yields the name
     var house = this.className.split(' ')[1].capIt();
 
+    // 3. Put the path together and make the video load and play
+    vidPlayer.src = `video/House-${house}.${vidPlayer.currentSrc.split('.')[1]}`;
+
+    vidPlayer.load();
     vidPlayer.play();
   }
 
@@ -28,7 +36,32 @@
     vidPlayer.currentTime = 0;
   }
 
+  function togglePlay(){
+    //debugger;
+    var theSVG = this.firstElementChild;
+    if(vidPlayer.paused){
+    vidPlayer.play();
+    theSVG.dataset.icon = "pause-circle";
+    }
+    else {
+    vidPlayer.pause();
+    theSVG.dataset.icon = "play-circle";
+    }
+  }
+
+  function ffWdVid() {
+    debugger;
+  }
+
+  function rWndVid() {
+    debugger;
+  }
+
   // events at the bottom
   sigils.forEach(sigil => sigil.addEventListener('click', loadMovie));
   closeLightbox.addEventListener('click', closeLBox);
+  playPause.addEventListener('click', togglePlay);
+  vidPlayer.addEventListener('ended', closeLBox);
+  ffWd.addEventListener('click', ffWdVid);
+  rWnd.addEventListener('click', rWndVid);
 })();
